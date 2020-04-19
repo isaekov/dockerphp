@@ -16,4 +16,18 @@ services:
     volumes:
       - ./src:/usr/share/nginx/html
       - ./php/php.ini:/usr/local/etc/php/php.ini
+ 
+  db:
+      image: mysql:5.7
+      restart: always
+      environment:
+        MYSQL_DATABASE: 'db'
+        MYSQL_USER: 'root'
+        MYSQL_ROOT_PASSWORD: '6'
+      ports:
+        - '3306:3306'
+      expose:
+        - '3306'
+      volumes:
+        - ./db/mysql:/var/lib/mysql
 
